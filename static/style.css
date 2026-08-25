@@ -1,0 +1,171 @@
+/* --- Alapok és színpaletta ---
+   Akcentszín: #6C5CE7 (lila-kék)
+   Háttér: #F4F5F7 (világosszürke)
+   Kártya: #FFFFFF
+   Szövegszín: #2D3436 (majdnem fekete, de nem nyers fekete)
+   Halványszürke szöveg (mellékes infó): #B2BEC3
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #F4F5F7;
+    color: #2D3436;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+.container {
+    background-color: #FFFFFF;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 20px;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+/* --- Hozzáadó form ---
+   Input és gomb egy sorban, az input tölti ki a helyet,
+   a gomb fix szélességű, lila háttérrel.
+*/
+.add-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.add-form input[type="text"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #DFE3E6;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.add-form input[type="text"]:focus {
+    border-color: #6C5CE7;
+}
+
+.add-form button {
+    background-color: #6C5CE7;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.add-form button:hover {
+    background-color: #5A4BD6;
+}
+
+/* --- Todo lista --- */
+.todo-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background-color: #F9F9FB;
+    border-radius: 10px;
+    transition: background-color 0.15s ease;
+}
+
+.todo-item:hover {
+    background-color: #F0F1F5;
+}
+
+/* A pipa-kör: üres kör, ha kész, lila kitöltés + pipa */
+.check-circle {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 2px solid #B2BEC3;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.todo-item.done .check-circle {
+    background-color: #6C5CE7;
+    border-color: #6C5CE7;
+}
+
+.task-text {
+    flex: 1;
+    font-size: 15px;
+    word-break: break-word;
+}
+
+/* Kész elemnél áthúzott, halványabb szöveg */
+.todo-item.done .task-text {
+    text-decoration: line-through;
+    color: #B2BEC3;
+}
+
+/* Törlés gomb: alapból halvány, hoverre piros */
+.delete-btn {
+    color: #DFE3E6;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.delete-btn:hover {
+    color: #E74C3C;
+    background-color: #FDECEA;
+}
+
+/* --- Üres állapot --- */
+.empty-state {
+    text-align: center;
+    color: #B2BEC3;
+    font-size: 14px;
+    padding: 24px 0;
+}
+
+/* --- Mobilra optimalizálás --- */
+@media (max-width: 500px) {
+    body {
+        padding-top: 24px;
+    }
+    .container {
+        padding: 24px 20px;
+    }
+}

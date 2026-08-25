@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Lista</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Todo Lista</h1>
+
+        <form action="{{ url_for('add') }}" method="POST" class="add-form">
+            <input
+                type="text"
+                name="task"
+                placeholder="Mit kell csinálnod?"
+                autocomplete="off"
+                required
+            >
+            <button type="submit">Hozzáadás</button>
+        </form>
+
+        {% if todos %}
+        <ul class="todo-list">
+            {% for todo in todos %}
+            <li class="todo-item {% if todo.done %}done{% endif %}">
+                <a href="{{ url_for('complete', todo_id=todo._id) }}" class="check-circle">
+                    {% if todo.done %}✔{% endif %}
+                </a>
+                <span class="task-text">{{ todo.task }}</span>
+                <a href="{{ url_for('delete', todo_id=todo._id) }}" class="delete-btn">✕</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="empty-state">Nincs egyetlen teendőd sem — vegyél egy mély levegőt. 🌿</p>
+        {% endif %}
+    </div>
+</body>
+</html>
