@@ -21,7 +21,7 @@ Futtatás:
 
 1. Klónozd a repót, hozz létre virtuális környezetet, telepítsd a függőségeket:
    python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\Activate.ps1
+   source venv/bin/activate  # Windows: venv\Scripts\Activate
    pip install -r requirements.txt
 2. Hozz létre egy .env fájlt a saját MongoDB kapcsolati stringeddel:
    MONGO_URI=mongodb+srv://<user>:<pass>@<cluster>.mongodb.net/tododb
